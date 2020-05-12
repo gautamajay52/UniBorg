@@ -10,5 +10,5 @@ async def _(event):
     start = datetime.now()
     await event.edit("Admin has fucked for!")
     end = datetime.now()
-    n = ((end - start).microseconds / 1000 )ms
+    n = ((end - start).microseconds / 1000 )
     await event.edit("Admin has fucked for!\n{}".format(n) + "ms")
