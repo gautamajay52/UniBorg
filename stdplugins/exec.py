@@ -12,7 +12,7 @@ import time
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="g ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="g ?(.*)"))
 async def _(event):
     if event.fwd_from or event.via_bot_id:
         return
@@ -27,6 +27,7 @@ async def _(event):
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
+    await event.edit("Processing... Pid {process.pid}")
     e = stderr.decode()
     if not e:
         e = "No Error"
