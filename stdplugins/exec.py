@@ -27,9 +27,8 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    for pidd in process:
-        pidd = process.pid
-        await event.reply(f"process {pidd}")
+    if process:
+        await event.reply(f"process pid is {process.pid}")
     stdout, stderr = await process.communicate()
     e = stderr.decode()
     if not e:
