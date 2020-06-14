@@ -10,6 +10,7 @@ import io
 import asyncio
 import time
 from uniborg.util import admin_cmd
+import os
 
 
 @borg.on(admin_cmd(pattern="g ?(.*)"))
@@ -28,6 +29,8 @@ async def _(event):
     )
     stdout, stderr = await process.communicate()
     await event.reply("Processing... Pid {process.pid}")
+    rr = os.getpid()
+    await event.reply(f"hhh {rr}")
     e = stderr.decode()
     if not e:
         e = "No Error"
