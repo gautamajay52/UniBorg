@@ -27,7 +27,7 @@ async def _(event):
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
-    await event.edit("Processing... Pid {process.pid}")
+    await event.reply("Processing... Pid {process.pid}")
     e = stderr.decode()
     if not e:
         e = "No Error"
