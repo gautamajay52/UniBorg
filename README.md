@@ -23,11 +23,11 @@ dockerd
 ```
 - Build Docker image:
 ```sh
-docker build . -t UniBorg
+docker build . -t uniborg
 ```
 - Run the image:
 ```sh
-docker run UniBorg
+docker run uniborg
 ```
 
 It is not recommended to use "sudo", while using Docker.
